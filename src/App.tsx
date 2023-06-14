@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Container, { SubContainer } from "./components/Container";
 import Header from "./components/Header";
-import { COLORS } from "./constants/Color";
+import Hero from "./components/Hero";
 
 function App() {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -23,11 +22,10 @@ function App() {
 
     return (
         <>
-            <Container globalProps={{ width: screenWidth }}>
-                <SubContainer globalProps={{ width: screenWidth }}>
-                    <Header />
-                </SubContainer>
-            </Container >
+            <div className="bg-blue-500 h-screen py-10">
+                <Header />
+                <Hero />
+            </div>
         </>
     );
 }
