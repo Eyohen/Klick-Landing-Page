@@ -22,7 +22,7 @@ function App() {
 
     return (
         <>
-            <div className="bg-blue-500 h-screen py-10">
+            <div className="bg-[#0485E8] h-screen py-10">
                 <Header />
                 <Hero />
             </div>

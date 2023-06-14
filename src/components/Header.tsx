@@ -1,12 +1,7 @@
-import { FC } from 'react';
-import { GlobalProps } from '../types/global';
 import Logo from "/src/assets/logo.jpg"
 
-type HeaderProps = {
-    globalProps?: GlobalProps;
-};
 
-const Header: FC<HeaderProps> = ({ globalProps }) => {
+const Header = () => {
     return (
         <div className="flex justify-between items-center space-x-4 w-5/6 mx-auto h-16">
             {/* Logo section */}
