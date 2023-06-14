@@ -19,8 +19,6 @@ const ContainerStyle = styled.div<ContainerStyleProps>`
 const SubContainerStyle = styled.div<GlobalProps>`
     display: flex;
     flex-direction: column;
-    // justify-content: center;
-    background-color: pink;
     width: 80%;
     min-width: ${props => 0.9 * props.width + "px" || "100%"};
     height: 100vh;

@@ -25,23 +25,7 @@ function App() {
         <>
             <Container globalProps={{ width: screenWidth }}>
                 <SubContainer globalProps={{ width: screenWidth }}>
-                    <Header >
-                        {/* Logo section */}
-                        <div style={{
-                            width: '100px', height: '60px', display: 'flex', flexDirection: 'row',
-                            alignItems: 'center',
-                        }}>
-                            <img src="../src/assets/logo.jpg" alt="Google Logo"
-                                style={{
-                                    margin: '10px'
-                                }} />
-                            <p style={{
-                                fontFamily: "Poppins", fontSize: '50px',
-                                padding: 0, margin: 0, fontWeight: 'bold',
-                                color: COLORS.SECONDARY
-                            }}> Klick </p>
-                        </div>
-                    </Header>
+                    <Header />
                 </SubContainer>
             </Container >
         </>
