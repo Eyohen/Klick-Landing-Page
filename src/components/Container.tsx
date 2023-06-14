@@ -28,25 +28,16 @@ const SubContainer = ({ children }: { children: React.ReactNode }) => {
     </SubContainerStyle>
 }
 
-const Container = ({ children }: { children: React.ReactNode }) => {
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-    const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+type GlobalProps = {
+    width: number,
+}
+type ContainerProps = {
+    children: React.ReactNode,
+    globalProps: GlobalProps,
+}
 
-    useEffect(() => {
-        console.log(screenHeight, screenWidth)
-        const handleResize = () => {
-            setScreenWidth(window.innerWidth);
-            setScreenHeight(window.innerHeight);
-        };
-
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, [screenHeight, screenWidth]);
-
-    return <ContainerStyle width={screenWidth}> {children}</ContainerStyle>
+const Container = ({ children, globalProps: { width } }: ContainerProps) => {
+    return <ContainerStyle width={width}> {children}</ContainerStyle>
 }
 
 export {
