@@ -1,43 +1,44 @@
 import { styled } from 'styled-components'
-import { useState, useEffect } from 'react'
 import { COLORS } from '../constants/Color'
+import { GlobalProps } from '../types/global'
 
-const ContainerStyle = styled.div<Props>`
+type ContainerStyleProps = {
+    width: number,
+}
+const ContainerStyle = styled.div<ContainerStyleProps>`
     width: ${props => `${props.width}px` || "100%"};
     height: 100vh;
     margin: 0;
     padding: 0;
     background-color: ${COLORS.BACKGROUND};
-    box-sizing: border-box;
-`
-
-type Props = {
-    width: number,
-}
-const SubContainerStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background-color: ${COLORS.BACKGROUND}
+`
+
+const SubContainerStyle = styled.div<GlobalProps>`
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    background-color: pink;
+    width: 80%;
+    min-width: ${props => 0.9 * props.width + "px" || "100%"};
+    height: 100vh;
     `
-
-const SubContainer = ({ children }: { children: React.ReactNode }) => {
-    return <SubContainerStyle>
-        {children}
-    </SubContainerStyle>
+type SubContainerProps = {
+    children: React.ReactNode,
+    globalProps: GlobalProps,
+}
+const SubContainer: React.FC<SubContainerProps> = ({ children, globalProps: { width } }) => {
+    return <SubContainerStyle width={width}> {children} </SubContainerStyle>
 }
 
-type GlobalProps = {
-    width: number,
-}
 type ContainerProps = {
     children: React.ReactNode,
     globalProps: GlobalProps,
 }
-
-const Container = ({ children, globalProps: { width } }: ContainerProps) => {
-    return <ContainerStyle width={width}> {children}</ContainerStyle>
+const Container: React.FC<ContainerProps> = ({ children, globalProps: { width } }) => {
+    return <ContainerStyle width={width}> {children} </ContainerStyle>
 }
 
 export {
