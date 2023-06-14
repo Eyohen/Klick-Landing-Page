@@ -1,45 +1,56 @@
 import KlickLogo from "../assets/logo.jpg"
 import HeroImage from "../assets/hero.png"
 import { RiFacebookLine } from "react-icons/ri"
+import { AiOutlineTwitter } from "react-icons/ai"
+import { BsInstagram } from "react-icons/bs"
+import { AiOutlineYoutube } from "react-icons/ai"
 
-const iconClasses = "h-10 w-10 border border-white rounded-full p-[10px]"
+const iconClasses = "text-[#FEDD00] h-10 w-10 border border-[#FEDD00] rounded-full p-[10px]"
 
 const Hero = () => {
     return (
-        <div className="flex items-center justify-between w-5/6 mx-auto mt-20">
+        <div className="flex items-center justify-between w-5/6 mx-auto mt-6 md:mt-20">
             {/* left side */}
-            <div className="flex flex-col text-white space-y-8">
-                <p className="text-[48px] leading-[72px]">
+            <div className="flex flex-col items-center justify-between text-white space-y-8">
+                <p className="text-[30px] sm:text-[48px] leading-[40px] sm:leading-[72px]">
                     The Future of online shopping is just a
                     <span className="text-[#FEDD00]">
                         <img src={KlickLogo} alt="logo-image" className="w-[38px] inline-block" /> KLick away
                     </span>
                 </p>
 
-                <div className="text-[32px] leading-[48px]">
+                <div>
+                    <img src={HeroImage} alt="hero" className="sm:hidden w-[395px] h-full" />
+                </div>
+
+                <div className="text-[30px] sm:text-[32px] leading-[38px] sm:leading-[48px]">
                     <p>
                         Are you a seller who wants to grow their business?
                     </p>
-                    <p className="text-[#FEDD00]">
+                    <p className="text-[#FEDD00] mt-4">
                         Be the first to know when we launch
                     </p>
                 </div>
 
-                {/* notify me */}
-                <div className="flex items-center justify-between text-[24px] border-2 border-white rounded-full pl-4 pr-1 py-1">
-                    <input type="text" name="email" id="email" className="text-white placeholder-[#E1E1E1] outline-none bg-inherit" placeholder="Enter your email address" />
-                    <button className="bg-[#FEDD00] text-black rounded-full px-[54px] py-[10px]">Notify me</button>
-                </div>
+                <div className="flex items-center justify-between sm:text-[24px] border-2 border-white rounded-full px-1 py-1 sm:pl-4 sm:pr-1 sm:py-1">
+                    
+                    <input type="text" name="email" id="email" className="text-white placeholder-[#E1E1E1] outline-none bg-inherit w-full px-4" placeholder="Enter your email address" />
 
-                {/* socials */}
+                    <button className="bg-[#FEDD00] text-black rounded-full w-full px-1 py-2 sm:px-[54px] sm:py-[10px]">Notify me</button>
+                </div>
+                
+
                 <div className="flex justify-between items-center gap-6">
                     <RiFacebookLine className={iconClasses} />
+                    <AiOutlineTwitter className={iconClasses} />
+                    <BsInstagram className={iconClasses} />
+                    <AiOutlineYoutube className={iconClasses} />
                 </div>
 
             </div>
 
             {/* right side */}
-            <div className="h-full">
+            <div className="hidden sm:block h-full">
                 <img src={HeroImage} alt="hero" className="w-[395px] h-full" />
             </div>
         </div>
