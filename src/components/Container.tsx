@@ -1,12 +1,14 @@
 import { styled } from 'styled-components'
 import { useState, useEffect } from 'react'
+import { COLORS } from '../constants/Color'
 
 const ContainerStyle = styled.div<Props>`
     width: ${props => `${props.width}px` || "100%"};
-    // height: 100vh;
+    height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: white;
+    background-color: ${COLORS.BACKGROUND};
+    box-sizing: border-box;
 `
 
 type Props = {
@@ -17,7 +19,7 @@ const SubContainerStyle = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: yellow;
+    background-color: ${COLORS.BACKGROUND}
     `
 
 const SubContainer = ({ children }: { children: React.ReactNode }) => {
