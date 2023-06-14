@@ -1,20 +1,25 @@
 import { styled } from 'styled-components'
+import { useState, useEffect } from 'react'
 
-const ContainerStyle = styled.div`
-    width: 100%;
-    height: 100vh;
+const ContainerStyle = styled.div<Props>`
+    width: ${props => `${props.width}px` || "100%"};
+    // height: 100vh;
     margin: 0;
     padding: 0;
     background-color: white;
 `
-const SubContainerStyle = styled(ContainerStyle)`
+
+type Props = {
+    width: number,
+}
+const SubContainerStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: yellow;
     `
-    
+
 const SubContainer = ({ children }: { children: React.ReactNode }) => {
     return <SubContainerStyle>
         {children}
@@ -22,9 +27,24 @@ const SubContainer = ({ children }: { children: React.ReactNode }) => {
 }
 
 const Container = ({ children }: { children: React.ReactNode }) => {
-    return <ContainerStyle>
-        {children}
-    </ContainerStyle>
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+
+    useEffect(() => {
+        console.log(screenHeight, screenWidth)
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+            setScreenHeight(window.innerHeight);
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [screenHeight, screenWidth]);
+
+    return <ContainerStyle width={screenWidth}> {children}</ContainerStyle>
 }
 
 export {
