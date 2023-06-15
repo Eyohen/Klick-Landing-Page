@@ -34,7 +34,7 @@ const Hero = () => {
 
                 <div className="flex items-center justify-between sm:text-[24px] border-2 border-white rounded-full px-1 py-1 sm:pl-4 sm:pr-1 sm:py-1 w-full">
                     
-                    <input type="text" name="email" id="email" className="text-white placeholder-[#E1E1E1] outline-none bg-inherit w-full px-4" placeholder="Enter your email address" />
+                    <input type="text" name="email" id="email" className="text-white placeholder-[#E1E1E1] outline-none focus:outline-none bg-inherit w-full px-4" placeholder="Enter your email address" />
 
                     <button className="bg-[#FEDD00] text-black rounded-full w-full px-1 py-2 sm:px-[54px] sm:py-[10px]">Notify me</button>
                 </div>
