@@ -5,7 +5,7 @@ import { AiOutlineTwitter } from "react-icons/ai"
 import { BsInstagram } from "react-icons/bs"
 import { AiOutlineYoutube } from "react-icons/ai"
 
-const iconClasses = "text-[#FEDD00] h-10 w-10 border border-[#FEDD00] rounded-full p-[10px] hover:cursor-pointer"
+const iconClasses = "text-[#FEDD00] md:text-white h-10 w-10 md:border border-white rounded-full p-[10px] hover:cursor-pointer"
 
 const Hero = () => {
     return (
@@ -13,13 +13,10 @@ const Hero = () => {
             {/* left side */}
             <div className="flex flex-col justify-between text-white space-y-8 md:w-1/2">
                 <p className="text-[30px] sm:text-[48px] leading-[40px] sm:leading-[72px]">
-                    The Future of online shopping is just a
-                    <span className="text-[#FEDD00]">
-                        <img src={KlickLogo} alt="logo-image" className="w-[38px] inline-block" /> KLick away
-                    </span>
+                    The Future of online shopping is just a <span className="text-[#FEDD00] ml-2"><img src={KlickLogo} alt="logo-image" className="w-[40px] md:w-[52px] inline-flex" />KLick away</span>
                 </p>
 
-                <div className="md:hidden">
+                <div className="md:hidden mx-auto">
                     <img src={HeroImage} alt="hero" className="w-[395px] h-full" />
                 </div>
 
@@ -32,15 +29,15 @@ const Hero = () => {
                     </p>
                 </div>
 
-                <div className="flex items-center justify-between sm:text-[24px] border-2 border-white rounded-full px-1 py-1 sm:pl-4 sm:pr-1 sm:py-1 w-full">
+                <div className="flex items-center justify-between sm:text-[24px] border border-white rounded-full px-1 py-1 sm:pl-4 sm:pr-1 sm:py-1 w-full">
                     
                     <input type="text" name="email" id="email" className="text-white placeholder-[#E1E1E1] outline-none focus:outline-none bg-inherit w-full px-4" placeholder="Enter your email address" />
 
-                    <button className="bg-[#FEDD00] text-black rounded-full w-full px-1 py-2 sm:px-[54px] sm:py-[10px]">Notify me</button>
+                    <button className="bg-[#FEDD00] text-black rounded-full w-full md:w-1/2 px-1 py-2 sm:px-[54px] sm:py-[10px]">Notify me</button>
                 </div>
                 
 
-                <div className="flex justify-start items-center gap-6">
+                <div className="flex justify-center md:justify-start items-center gap-6">
                     <RiFacebookLine className={iconClasses} />
                     <AiOutlineTwitter className={iconClasses} />
                     <BsInstagram className={iconClasses} />
@@ -51,7 +48,7 @@ const Hero = () => {
 
             {/* right side */}
             <div className="hidden md:block h-full">
-                <img src={HeroImage} alt="hero" className="w-[395px] h-full" />
+                <img src={HeroImage} alt="hero" className="w-full h-full" />
             </div>
         </div>
     )

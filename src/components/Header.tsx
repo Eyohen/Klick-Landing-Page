@@ -9,16 +9,16 @@ const Header = () => {
                 <img
                     src={Logo}
                     alt="Klick Logo"
-                    className="w-16 h-10 mr-2"
+                    className="h-[28px] w-[28x] md:w-[61px] md:h-[51px] mr-2"
                 />
-                <p className="font-bold text-4xl text-[#FEDD00]">Klick</p>
+                <p className="font-bold text-[36px] md:text-[64px] text-[#FEDD00]">Klick</p>
             </div>
 
             {/* Email section */}
             <p>
                 <a
                     href="mailto:info@klick.africa"
-                    className="font-bold sm:text-2xl text-white no-underline"
+                    className="font-bold text-[15px] sm:text-[32px] text-white no-underline"
                 >
                     info@klick.africa
                 </a>
