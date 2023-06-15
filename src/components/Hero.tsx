@@ -23,13 +23,15 @@ function validateEmail(email: string) {
 
 const Hero = () => {
     const [userEmail, setUserEmail] = useState("")
-    const [userEmailError, setUserEmailError] = useState("")
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUserEmail(e.target.value)
     }
 
     const submitEmail = async () => {
+        const valid_email = validateEmail(userEmail)
+        if (!valid_email) { alert("Please enter a valid email address") }
+        
         const response = await MailChimpMarketing.lists.batchListMembers("list_id", {
             members: [{
                 email_address: userEmail,
