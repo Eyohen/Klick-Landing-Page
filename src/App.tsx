@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import * as config from "./config";
+
+console.log('config', config)
 
 function App() {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
