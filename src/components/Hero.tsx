@@ -6,12 +6,13 @@ import { AiOutlineTwitter } from "react-icons/ai"
 import { BsInstagram } from "react-icons/bs"
 import { AiOutlineYoutube } from "react-icons/ai"
 import { useState } from "react"
+import MailChimpMarketing from '@mailchimp/mailchimp_marketing'
+import * as CONFIG from '../config'
 
-// const mailchimp = new MailchimpMarketing();
-// mailchimp.setConfig({
-//     apiKey: 'YOUR_API_KEY',
-//     server: 'YOUR_SERVER_PREFIX',
-// });
+MailChimpMarketing.setConfig({
+    apiKey: CONFIG.MAILCHIMP_API_KEY,
+    server: CONFIG.MAILCHIMP_SERVER_PREFIX,
+});
 
 const iconClasses = "text-[#FEDD00] md:text-white h-10 w-10 md:border border-white rounded-full p-[10px] hover:cursor-pointer"
 
@@ -28,8 +29,19 @@ const Hero = () => {
         setUserEmail(e.target.value)
     }
 
-    const submitEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    const submitEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+        const response = await MailChimpMarketing.lists.batchListMembers("list_id", {
+            members: [{
+                email_address: userEmail,
+                email_type: "text",
+                status: "subscribed",
+            }],
+        });
 
+        const error_occured = (response as any).errors
+        if (error_occured) { alert("An error occured, please try again later") }
+
+        setUserEmail("")
     }
 
     return (
