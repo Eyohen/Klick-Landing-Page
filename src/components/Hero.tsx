@@ -4,10 +4,34 @@ import { RiFacebookLine } from "react-icons/ri"
 import { AiOutlineTwitter } from "react-icons/ai"
 import { BsInstagram } from "react-icons/bs"
 import { AiOutlineYoutube } from "react-icons/ai"
+import axios from "axios"
+import { useState } from "react"
 
 const iconClasses = "text-[#FEDD00] md:text-white h-10 w-10 md:border border-white rounded-full p-[10px] hover:cursor-pointer"
 
 const Hero = () => {
+    const [email, setEmail] = useState("")
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post(
+                'https://<API_ENDPOINT>.api.mailchimp.com/3.0/lists/<AUDIENCE_ID>/members',
+                {
+                    email_address: email,
+                    status: 'subscribed',
+                },
+                {
+                    auth: {
+                        username: 'anystring',
+                        password: '<MAILCHIMP_API_KEY>',
+                    },
+                }
+            );
+            console.log(response.data); // Handle success response
+        } catch (error) {
+            console.error(error); // Handle error
+        }
+    }
     return (
         <div className="flex items-center justify-between w-5/6 mx-auto">
             {/* left side */}
@@ -29,13 +53,12 @@ const Hero = () => {
                     </p>
                 </div>
 
-                <div className="flex items-center justify-between sm:text-[24px] border border-white rounded-full px-1 py-1 sm:pl-4 sm:pr-1 sm:py-1 w-full">
-                    
-                    <input type="text" autoComplete="off" name="email" id="email" className="text-white placeholder-[#E1E1E1] outline-none focus:outline-none bg-inherit w-full px-4" placeholder="Enter your email address" />
+                <form className="flex items-center justify-between sm:text-[24px] border border-white rounded-full px-1 py-1 sm:pl-4 sm:pr-1 sm:py-1 w-full">
+                    <input type="email" onChange={(e) => setEmail(e.target.value)} autoComplete="off" name="email" id="email" className="text-white placeholder-[#E1E1E1] outline-none focus:outline-none bg-inherit w-full px-4" placeholder="Enter your email address" />
 
-                    <button className="bg-[#FEDD00] text-black rounded-full w-full md:w-1/2 px-1 py-2 sm:px-[54px] sm:py-[10px]">Notify me</button>
-                </div>
-                
+                    <button onClick={handleSubmit} className="bg-[#FEDD00] text-black rounded-full w-full md:w-1/2 px-1 py-2 sm:px-[54px] sm:py-[10px]">Notify me</button>
+                </form>
+
 
                 <div className="flex justify-center md:justify-start items-center gap-6">
                     <a href="https://facebook.com/klickafricaa"><RiFacebookLine className={iconClasses} /></a>
