@@ -5,13 +5,13 @@ import { AiOutlineTwitter } from "react-icons/ai"
 import { BsInstagram } from "react-icons/bs"
 import { AiOutlineYoutube } from "react-icons/ai"
 
-const iconClasses = "text-[#FEDD00] h-10 w-10 border border-[#FEDD00] rounded-full p-[10px]"
+const iconClasses = "text-[#FEDD00] h-10 w-10 border border-[#FEDD00] rounded-full p-[10px] hover:cursor-pointer"
 
 const Hero = () => {
     return (
         <div className="flex items-center justify-between w-5/6 mx-auto mt-6 md:mt-20">
             {/* left side */}
-            <div className="flex flex-col items-center justify-between text-white space-y-8">
+            <div className="flex flex-col justify-between text-white space-y-8 sm:w-1/2">
                 <p className="text-[30px] sm:text-[48px] leading-[40px] sm:leading-[72px]">
                     The Future of online shopping is just a
                     <span className="text-[#FEDD00]">
@@ -19,8 +19,8 @@ const Hero = () => {
                     </span>
                 </p>
 
-                <div>
-                    <img src={HeroImage} alt="hero" className="sm:hidden w-[395px] h-full" />
+                <div className="md:hidden">
+                    <img src={HeroImage} alt="hero" className="w-[395px] h-full" />
                 </div>
 
                 <div className="text-[30px] sm:text-[32px] leading-[38px] sm:leading-[48px]">
@@ -40,7 +40,7 @@ const Hero = () => {
                 </div>
                 
 
-                <div className="flex justify-between items-center gap-6">
+                <div className="flex justify-start items-center gap-6">
                     <RiFacebookLine className={iconClasses} />
                     <AiOutlineTwitter className={iconClasses} />
                     <BsInstagram className={iconClasses} />
@@ -50,7 +50,7 @@ const Hero = () => {
             </div>
 
             {/* right side */}
-            <div className="hidden sm:block h-full">
+            <div className="hidden md:block h-full">
                 <img src={HeroImage} alt="hero" className="w-[395px] h-full" />
             </div>
         </div>
