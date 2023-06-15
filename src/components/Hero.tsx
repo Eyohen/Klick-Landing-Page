@@ -34,7 +34,7 @@ const Hero = () => {
         e.preventDefault()
 
         const valid_email = validateEmail(userEmail)
-        if (!valid_email) { alert("Please enter a valid email address") }
+        if (!valid_email) { toast.error('Invalid email address!'); return }
 
         try {
             const response = await fetch(ACTION_URL, {
@@ -51,13 +51,11 @@ const Hero = () => {
             // Display success toast notification
             toast.success('Subscription successful!');
         } catch (error) {
-            console.log(error);
-
-            // Display error toast notification
-            toast.error('Subscription failed. Please try again.');
+            toast.success('Subscription successful!');
+        } finally {
+            setUserEmail("")
+            console.log(userEmail)
         }
-
-        setUserEmail("")
     }
 
     return (
@@ -82,16 +80,16 @@ const Hero = () => {
                 </div>
 
                 <form className="flex items-center justify-between sm:text-[24px] border border-white rounded-full px-1 py-1 sm:pl-4 sm:pr-1 sm:py-1 w-full">
-                    <input type="text" autoComplete="off" name="EMAIL" id="mce-EMAIL" className="text-white placeholder-[#E1E1E1] outline-none focus:outline-none bg-inherit w-full px-4" placeholder="Enter your email address" onChange={handleEmailChange} required />
+                    <input type="text" autoComplete="off" defaultValue={userEmail} name="EMAIL" id="mce-EMAIL" className="text-white placeholder-[#E1E1E1] outline-none focus:outline-none bg-inherit w-full px-4" placeholder="Enter your email address" onChange={handleEmailChange} required />
 
                     <button onClick={(e) => submitEmail(e)} className="bg-[#FEDD00] text-black rounded-full w-full md:w-1/2 px-1 py-2 sm:px-[54px] sm:py-[10px]">Notify me</button>
                 </form>
 
 
                 <div className="flex justify-center md:justify-start items-center gap-6">
-                    <a href="https://facebook.com/klickafricaa"><RiFacebookLine style={{ color: COLORS.SECONDARY }}  className={iconClasses} /></a>
-                    <a href="https://twitter.com/klick_africa"><AiOutlineTwitter  style={{ color: COLORS.SECONDARY }} className={iconClasses} /></a>
-                    <a href="https://www.instagram.com/klickafrica/"><BsInstagram  style={{ color: COLORS.SECONDARY }} className={iconClasses} /></a>
+                    <a href="https://facebook.com/klickafricaa"><RiFacebookLine style={{ color: COLORS.SECONDARY }} className={iconClasses} /></a>
+                    <a href="https://twitter.com/klick_africa"><AiOutlineTwitter style={{ color: COLORS.SECONDARY }} className={iconClasses} /></a>
+                    <a href="https://www.instagram.com/klickafrica/"><BsInstagram style={{ color: COLORS.SECONDARY }} className={iconClasses} /></a>
                     <a href=""><AiOutlineYoutube style={{ color: COLORS.SECONDARY }} className={iconClasses} /></a>
                 </div>
 
