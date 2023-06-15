@@ -10,12 +10,15 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "@mailchimp/mailchimp_marketing": "^3.0.80",
+        "dotenv": "^16.1.4",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-icons": "^4.9.0",
         "styled-components": "^6.0.0-rc.1"
     },
     "devDependencies": {
+        "@types/node": "^20.3.1",
         "@types/react": "^18.2.12",
         "@types/react-dom": "^18.0.11",
         "@types/styled-components": "^5.1.26",
