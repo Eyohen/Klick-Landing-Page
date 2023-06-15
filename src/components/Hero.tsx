@@ -1,4 +1,4 @@
-import KlickLogo from "../assets/logo.jpg"
+import Logo from "./Logo"
 import HeroImage from "../assets/hero.png"
 import KlickLogoWithText from "../assets/klicktogether.png"
 import { RiFacebookLine } from "react-icons/ri"
@@ -50,9 +50,9 @@ const Hero = () => {
         <div className="flex items-center justify-between w-5/6 mx-auto">
             {/* left side */}
             <div className="flex flex-col justify-between text-white space-y-8 md:w-1/2">
-                <div className="text-[30px] sm:text-[48px] leading-[40px] sm:leading-[72px]">
-                    The Future of online shopping is just a <span className="text-[#FEDD00] ml-2 inline-"><img style={{ width: "auto", height: "80px" }} src={KlickLogoWithText} alt="logo-image" className="w-[40px] md:w-[52px] inline-flex" /></span> away
-                </div>
+                <p className="text-[30px] sm:text-[48px] leading-[40px] sm:leading-[72px]">
+                    The Future of online shopping is just a <Logo className="inline w-[110px] md:w-[150px] mx-2" />away
+                </p>
 
                 <div className="md:hidden mx-auto">
                     <img src={HeroImage} alt="hero" className="w-[395px] h-full" />
@@ -75,10 +75,10 @@ const Hero = () => {
 
 
                 <div className="flex justify-center md:justify-start items-center gap-6">
-                    <RiFacebookLine className={iconClasses} />
-                    <AiOutlineTwitter className={iconClasses} />
-                    <BsInstagram className={iconClasses} />
-                    <AiOutlineYoutube className={iconClasses} />
+                    <a href="https://facebook.com/klickafricaa"><RiFacebookLine className={iconClasses} /></a>
+                    <a href="https://twitter.com/klick_africa"><AiOutlineTwitter className={iconClasses} /></a>
+                    <a href="https://www.instagram.com/klickafrica/"><BsInstagram className={iconClasses} /></a>
+                    <a href=""><AiOutlineYoutube className={iconClasses} /></a>
                 </div>
 
             </div>
