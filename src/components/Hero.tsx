@@ -21,8 +21,6 @@ function validateEmail(email: string) {
     return re.test(email);
 }
 const ACTION_URL = "https://app.us8.list-manage.com/subscribe/post?u=3e9df19052ca00cea30ef5249&amp;id=a7a2381ddc&amp;f_id=004f72e0f0"
-const FORM_ID = "mc-embedded-subscribe-form"
-const FORM_NAME = "mc-embedded-subscribe-form"
 
 const Hero = () => {
     const [userEmail, setUserEmail] = useState("")
@@ -32,7 +30,7 @@ const Hero = () => {
     }
 
 
-    const submitEmail = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const submitEmail = async (e: any) => {
         e.preventDefault()
 
         const valid_email = validateEmail(userEmail)
@@ -99,7 +97,7 @@ const Hero = () => {
                 <form className="flex items-center justify-between sm:text-[24px] border border-white rounded-full px-1 py-1 sm:pl-4 sm:pr-1 sm:py-1 w-full">
                     <input type="text" autoComplete="off" name="EMAIL" id="mce-EMAIL" className="text-white placeholder-[#E1E1E1] outline-none focus:outline-none bg-inherit w-full px-4" placeholder="Enter your email address" onChange={handleEmailChange} required />
 
-                    <button onClick={submitEmail} className="bg-[#FEDD00] text-black rounded-full w-full md:w-1/2 px-1 py-2 sm:px-[54px] sm:py-[10px]">Notify me</button>
+                    <button onClick={(e) => submitEmail(e)} className="bg-[#FEDD00] text-black rounded-full w-full md:w-1/2 px-1 py-2 sm:px-[54px] sm:py-[10px]">Notify me</button>
                 </form>
 
 
