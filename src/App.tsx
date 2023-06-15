@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import * as config from "./config";
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 console.log('config', config)
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <div className="flex flex-col md:justify-center items-center h-[100vh] py-10 overflow-auto">
                 <Hero />
             </div>
+            <ToastContainer />
         </main>
     );
 }

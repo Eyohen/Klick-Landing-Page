@@ -7,6 +7,7 @@ import { AiOutlineYoutube } from "react-icons/ai"
 import { useState } from "react"
 import MailChimpMarketing from '@mailchimp/mailchimp_marketing'
 import * as CONFIG from '../config'
+import { toast } from 'react-toastify';
 
 MailChimpMarketing.setConfig({
     apiKey: CONFIG.MAILCHIMP_API_KEY,
@@ -33,7 +34,7 @@ const Hero = () => {
 
     const submitEmail = async (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
-        
+
         const valid_email = validateEmail(userEmail)
         if (!valid_email) { alert("Please enter a valid email address") }
 
@@ -43,13 +44,19 @@ const Hero = () => {
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams({
                     EMAIL: userEmail,
-                    b_3e9df19052ca00cea30ef5249_a7a2381ddc: ""
-                }).toString()
-            })
-            const data = await response.json()
-            console.log(data)
+                    b_3e9df19052ca00cea30ef5249_a7a2381ddc: '',
+                }).toString(),
+            });
+            const data = await response.json();
+            console.log(data);
+
+            // Display success toast notification
+            toast.success('Subscription successful!');
         } catch (error) {
-            console.log(error)
+            console.log(error);
+
+            // Display error toast notification
+            toast.error('Subscription failed. Please try again.');
         }
 
         // const response = await MailChimpMarketing.lists.batchListMembers("list_id", {
