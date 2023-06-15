@@ -5,15 +5,9 @@ import { AiOutlineTwitter } from "react-icons/ai"
 import { BsInstagram } from "react-icons/bs"
 import { AiOutlineYoutube } from "react-icons/ai"
 import { useState } from "react"
-import MailChimpMarketing from '@mailchimp/mailchimp_marketing'
 import * as CONFIG from '../config'
 import { toast } from 'react-toastify';
 import { COLORS } from "../constants/Color"
-
-MailChimpMarketing.setConfig({
-    apiKey: CONFIG.MAILCHIMP_API_KEY,
-    server: CONFIG.MAILCHIMP_SERVER_PREFIX,
-});
 
 const iconClasses = "text-[#FEDD00] md:text-white h-10 w-10 md:border border-white rounded-full p-[10px] hover:cursor-pointer"
 
@@ -21,7 +15,8 @@ function validateEmail(email: string) {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
 }
-const ACTION_URL = "https://app.us8.list-manage.com/subscribe/post?u=3e9df19052ca00cea30ef5249&amp;id=a7a2381ddc&amp;f_id=004f72e0f0"
+
+const ACTION_URL = CONFIG.ACTION_URL
 
 const Hero = () => {
     const [userEmail, setUserEmail] = useState("")
