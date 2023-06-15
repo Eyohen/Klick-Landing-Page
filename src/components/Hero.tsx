@@ -20,6 +20,7 @@ const ACTION_URL = CONFIG.ACTION_URL
 
 const Hero = () => {
     const [userEmail, setUserEmail] = useState("")
+    console.log(ACTION_URL)
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUserEmail(e.target.value)
