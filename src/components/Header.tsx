@@ -9,9 +9,9 @@ const Header = () => {
                 <img
                     src={Logo}
                     alt="Klick Logo"
-                    className="h-[28px] w-[28x] md:w-[61px] md:h-[51px] mr-2"
+                    className="w-[250px] md:w-[350px] mr-2"
                 />
-                <p className="font-bold text-[36px] md:text-[64px] text-[#FEDD00]">Klick</p>
+                {/* <p className="font-bold text-[36px] md:text-[64px] text-[#FEDD00]">Klick</p> */}
             </div>
 
             {/* Email section */}
