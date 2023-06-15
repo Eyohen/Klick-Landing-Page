@@ -8,6 +8,7 @@ import { useState } from "react"
 import MailChimpMarketing from '@mailchimp/mailchimp_marketing'
 import * as CONFIG from '../config'
 import { toast } from 'react-toastify';
+import { COLORS } from "../constants/Color"
 
 MailChimpMarketing.setConfig({
     apiKey: CONFIG.MAILCHIMP_API_KEY,
@@ -28,7 +29,6 @@ const Hero = () => {
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUserEmail(e.target.value)
     }
-
 
     const submitEmail = async (e: any) => {
         e.preventDefault()
@@ -56,19 +56,6 @@ const Hero = () => {
             // Display error toast notification
             toast.error('Subscription failed. Please try again.');
         }
-
-        // const response = await MailChimpMarketing.lists.batchListMembers("list_id", {
-        //     members: [{
-        //         email_address: userEmail,
-        //         email_type: "text",
-        //         status: "subscribed",
-        //     }],
-        // });
-
-        // const error_occured = (response as any).errors
-        // if (error_occured) { alert("An error occured, please try again later") }
-
-
 
         setUserEmail("")
     }
@@ -102,10 +89,10 @@ const Hero = () => {
 
 
                 <div className="flex justify-center md:justify-start items-center gap-6">
-                    <a href="https://facebook.com/klickafricaa"><RiFacebookLine className={iconClasses} /></a>
-                    <a href="https://twitter.com/klick_africa"><AiOutlineTwitter className={iconClasses} /></a>
-                    <a href="https://www.instagram.com/klickafrica/"><BsInstagram className={iconClasses} /></a>
-                    <a href=""><AiOutlineYoutube className={iconClasses} /></a>
+                    <a href="https://facebook.com/klickafricaa"><RiFacebookLine style={{ color: COLORS.SECONDARY }}  className={iconClasses} /></a>
+                    <a href="https://twitter.com/klick_africa"><AiOutlineTwitter  style={{ color: COLORS.SECONDARY }} className={iconClasses} /></a>
+                    <a href="https://www.instagram.com/klickafrica/"><BsInstagram  style={{ color: COLORS.SECONDARY }} className={iconClasses} /></a>
+                    <a href=""><AiOutlineYoutube style={{ color: COLORS.SECONDARY }} className={iconClasses} /></a>
                 </div>
 
             </div>
