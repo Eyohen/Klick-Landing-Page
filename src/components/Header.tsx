@@ -3,7 +3,7 @@ import Logo from "/src/assets/logo.jpg"
 
 const Header = () => {
     return (
-        <div className="flex justify-between items-center space-x-4 w-5/6 mx-auto h-16">
+        <div className="flex justify-between items-center space-x-4 w-5/6 mx-auto pt-4">
             {/* Logo section */}
             <div className="flex items-center">
                 <img

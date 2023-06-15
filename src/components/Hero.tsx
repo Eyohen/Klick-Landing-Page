@@ -9,7 +9,7 @@ const iconClasses = "text-[#FEDD00] md:text-white h-10 w-10 md:border border-whi
 
 const Hero = () => {
     return (
-        <div className="flex items-center justify-between w-5/6 mx-auto mt-6 md:mt-20 l:mt-16 xl:mt-14">
+        <div className="flex items-center justify-between w-5/6 mx-auto">
             {/* left side */}
             <div className="flex flex-col justify-between text-white space-y-8 md:w-1/2">
                 <p className="text-[30px] sm:text-[48px] leading-[40px] sm:leading-[72px]">
@@ -31,7 +31,7 @@ const Hero = () => {
 
                 <div className="flex items-center justify-between sm:text-[24px] border border-white rounded-full px-1 py-1 sm:pl-4 sm:pr-1 sm:py-1 w-full">
                     
-                    <input type="text" name="email" id="email" className="text-white placeholder-[#E1E1E1] outline-none focus:outline-none bg-inherit w-full px-4" placeholder="Enter your email address" />
+                    <input type="text" autoComplete="off" name="email" id="email" className="text-white placeholder-[#E1E1E1] outline-none focus:outline-none bg-inherit w-full px-4" placeholder="Enter your email address" />
 
                     <button className="bg-[#FEDD00] text-black rounded-full w-full md:w-1/2 px-1 py-2 sm:px-[54px] sm:py-[10px]">Notify me</button>
                 </div>

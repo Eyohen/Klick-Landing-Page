@@ -6,9 +6,9 @@ export default {
     ],
     theme: {
         fontFamily: {
-            sans: ['Poppins', 'sans-serif'],
-            serif: ['Poppins', 'serif'],
-            mono: ['Poppins', 'monospace'],
+            sans: ['Poppins'],
+            serif: ['Poppins'],
+            mono: ['Poppins'],
         },
     },
     plugins: [],
