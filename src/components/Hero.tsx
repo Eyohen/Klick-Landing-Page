@@ -1,20 +1,44 @@
 import KlickLogo from "../assets/logo.jpg"
 import HeroImage from "../assets/hero.png"
+import KlickLogoWithText from "../assets/klicktogether.png"
 import { RiFacebookLine } from "react-icons/ri"
 import { AiOutlineTwitter } from "react-icons/ai"
 import { BsInstagram } from "react-icons/bs"
 import { AiOutlineYoutube } from "react-icons/ai"
+import { useState } from "react"
+
+// const mailchimp = new MailchimpMarketing();
+// mailchimp.setConfig({
+//     apiKey: 'YOUR_API_KEY',
+//     server: 'YOUR_SERVER_PREFIX',
+// });
 
 const iconClasses = "text-[#FEDD00] md:text-white h-10 w-10 md:border border-white rounded-full p-[10px] hover:cursor-pointer"
 
+function validateEmail(email: string) {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
 const Hero = () => {
+    const [userEmail, setUserEmail] = useState("")
+    const [userEmailError, setUserEmailError] = useState("")
+
+    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setUserEmail(e.target.value)
+    }
+
+    const submitEmail = (e: React.FormEvent<HTMLFormElement>) => {
+
+    }
+
     return (
         <div className="flex items-center justify-between w-5/6 mx-auto">
             {/* left side */}
             <div className="flex flex-col justify-between text-white space-y-8 md:w-1/2">
-                <p className="text-[30px] sm:text-[48px] leading-[40px] sm:leading-[72px]">
-                    The Future of online shopping is just a <span className="text-[#FEDD00] ml-2"><img src={KlickLogo} alt="logo-image" className="w-[40px] md:w-[52px] inline-flex" />KLick away</span>
-                </p>
+                <div className="text-[30px] sm:text-[48px] leading-[40px] sm:leading-[72px]">
+                    The Future of online shopping is just a <span className="text-[#FEDD00] ml-2 inline-"><img style={{ width: "auto", height: "80px" }} src={KlickLogoWithText} alt="logo-image" className="w-[40px] md:w-[52px] inline-flex" /></span> away
+                </div>
 
                 <div className="md:hidden mx-auto">
                     <img src={HeroImage} alt="hero" className="w-[395px] h-full" />
@@ -34,7 +58,7 @@ const Hero = () => {
 
                     <button className="bg-[#FEDD00] text-black rounded-full w-full md:w-1/2 px-1 py-2 sm:px-[54px] sm:py-[10px]">Notify me</button>
                 </div>
-                
+
 
                 <div className="flex justify-center md:justify-start items-center gap-6">
                     <RiFacebookLine className={iconClasses} />
