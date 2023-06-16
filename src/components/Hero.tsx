@@ -4,11 +4,11 @@ import { RiFacebookLine } from "react-icons/ri"
 import { AiOutlineTwitter } from "react-icons/ai"
 import { BsInstagram } from "react-icons/bs"
 import { AiOutlineYoutube } from "react-icons/ai"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import * as CONFIG from '../config'
 import { toast } from 'react-toastify';
 import { COLORS } from "../constants/Color"
-import facebookSdk from "facebook-nodejs-business-sdk"
+import { initFacebookSubscribeEvent } from "../utils/facebook"
 
 const iconClasses = "text-[#FEDD00] md:text-white h-10 w-10 md:border border-white rounded-full p-[10px] hover:cursor-pointer"
 
@@ -19,13 +19,14 @@ function validateEmail(email: string) {
 
 const ACTION_URL = CONFIG.ACTION_URL
 
+
 const Hero = () => {
     const [userEmail, setUserEmail] = useState("")
+    const [eventSource, setEventSource] = useState<string>('')
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUserEmail(e.target.value)
     }
-
     const submitEmail = async (e: any) => {
         e.preventDefault()
 
@@ -49,10 +50,16 @@ const Hero = () => {
         } catch (error) {
             toast.success('Subscription successful!');
         } finally {
+            await initFacebookSubscribeEvent(userEmail, eventSource)
             setUserEmail("")
             console.log(userEmail)
         }
     }
+    
+    useEffect(() => {
+        const eventSourceUrl = window.location.href
+        setEventSource(eventSourceUrl)
+    }, [eventSource])
 
     return (
         <div className="flex items-center justify-between w-5/6 mx-auto">
