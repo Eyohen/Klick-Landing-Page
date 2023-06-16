@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { COLORS } from '../constants/Color';
+import { useState } from 'react';
 
 type CheckListItemProp = {
     text: string,
@@ -19,7 +18,7 @@ function CheckListItem(props: CheckListItemProp) {
             <div style={{ minWidth: '120px' }}>{props.text}</div>
             <div>
                 <label style={{
-                    innerHeight: '20px',
+                    // innerHeight: '20px',
                 }}>
                     <input
                         type="checkbox"
