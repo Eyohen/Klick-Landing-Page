@@ -9,7 +9,7 @@ import * as CONFIG from '../config'
 import { toast } from 'react-toastify';
 import { COLORS } from "../constants/Color"
 import { initFacebookSubscribeEvent } from "../utils/facebook"
-import Checkbox from "./Checkbox"
+import CheckListItem from "./Checkbox"
 
 const iconClasses = "text-[#FEDD00] md:text-white h-10 w-10 md:border border-white rounded-full p-[10px] hover:cursor-pointer"
 
@@ -24,6 +24,7 @@ const ACTION_URL = CONFIG.ACTION_URL
 const Hero = () => {
     const [userEmail, setUserEmail] = useState("")
     const [eventSource, setEventSource] = useState<string>('')
+    const [selectedOptions, setSelectedOptions] = useState({ seller: false, buyer: false })
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUserEmail(e.target.value)
@@ -56,7 +57,15 @@ const Hero = () => {
             console.log(userEmail)
         }
     }
-    
+
+    function selectOption(option: string) {
+        if (option === 'buyer') {
+            setSelectedOptions({ ...selectedOptions, buyer: !selectedOptions.buyer })
+        } else {
+            setSelectedOptions({ ...selectedOptions, seller: !selectedOptions.seller })
+        }
+    }
+
     useEffect(() => {
         const eventSourceUrl = window.location.href
         setEventSource(eventSourceUrl)
@@ -75,11 +84,9 @@ const Hero = () => {
                 </div>
 
                 <div className="text-[30px] sm:text-[32px] leading-[38px] sm:leading-[48px]">
-                    <p>
-                        Are you interested in being
-                    </p>
-                    <li style={{ listStyleType: 'none', display: 'flex', flexDirection:'row'}}> <div style={{ minWidth: '120px'}}>A Buyer</div> <Checkbox/></li>
-                    <li style={{ listStyleType: 'none', display: 'flex', flexDirection:'row'}}> <div style={{ minWidth: '120px'}}>A Seller</div> <Checkbox/></li>
+                    <p style={{ marginBottom: "10px" }}> Are you interested in being </p>
+                    <CheckListItem text='A Buyer' />
+                    <CheckListItem text='A Seller' />
                     <p className="text-[#FEDD00] mt-4">
                         Be the first to know when we launch
                     </p>

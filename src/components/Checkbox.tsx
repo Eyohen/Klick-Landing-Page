@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 
-function CheckboxExample() {
+type CheckListItemProp = {
+    text: string
+}
+function CheckListItem(props: CheckListItemProp) {
+    return (
+        <li style={{ listStyleType: 'none', display: 'flex', flexDirection: 'row' }}>
+            <div style={{ minWidth: '120px' }}>{props.text}</div>
+            <Checkbox />
+        </li>
+    )
+}
+
+function Checkbox() {
     const [isChecked, setIsChecked] = useState(false);
 
     const handleCheckboxChange = (event) => {
@@ -27,4 +39,4 @@ function CheckboxExample() {
     );
 }
 
-export default CheckboxExample;
+export default CheckListItem;
