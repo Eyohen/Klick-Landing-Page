@@ -8,6 +8,7 @@ import { useState } from "react"
 import * as CONFIG from '../config'
 import { toast } from 'react-toastify';
 import { COLORS } from "../constants/Color"
+import facebookSdk from "facebook-nodejs-business-sdk"
 
 const iconClasses = "text-[#FEDD00] md:text-white h-10 w-10 md:border border-white rounded-full p-[10px] hover:cursor-pointer"
 
