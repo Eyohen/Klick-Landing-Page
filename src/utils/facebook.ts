@@ -15,8 +15,7 @@ async function initFacebookSubscribeEvent(userEmail: string, evenstSourceUrl: st
             },
             event_source_url: evenstSourceUrl,
             action_source: 'website',
-        }],
-        // test_event_code: 'TEST123',
+        }]
     }
 
     const accessToken = CONFIG.FACEBOOK_ACCESS_TOKEN;
