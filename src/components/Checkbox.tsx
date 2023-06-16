@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 type CheckListItemProp = {
     text: string,
@@ -8,7 +8,7 @@ type CheckListItemProp = {
 function CheckListItem(props: CheckListItemProp) {
     const [isChecked, setIsChecked] = useState(false);
 
-    const handleCheckboxChange = (event, updateSelectedOption: CheckListItemProp['updateSelectedOption']) => {
+    const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>, updateSelectedOption: CheckListItemProp['updateSelectedOption']) => {
         setIsChecked(event.target.checked);
         updateSelectedOption(props.id)
     };
