@@ -27,7 +27,7 @@ function App() {
     return (
         <main className="bg-[#0485E8]">
             <Header />
-            <div className="flex flex-col md:justify-center items-center h-[100vh] py-10 overflow-auto">
+            <div className="flex flex-col md:justify-center items-center h-[100vh] overflow-auto">
                 <Hero />
             </div>
             <ToastContainer />

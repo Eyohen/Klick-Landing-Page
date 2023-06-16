@@ -75,8 +75,10 @@ const Hero = () => {
 
                 <div className="text-[30px] sm:text-[32px] leading-[38px] sm:leading-[48px]">
                     <p>
-                        Are you a seller who wants to grow their business?
+                        Are you interested in being
                     </p>
+                    <li> A Buyer </li>
+                    <li> A Seller </li>
                     <p className="text-[#FEDD00] mt-4">
                         Be the first to know when we launch
                     </p>
