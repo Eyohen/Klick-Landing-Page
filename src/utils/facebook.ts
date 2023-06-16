@@ -5,16 +5,15 @@ import axios from 'axios'
 console.log(CONFIG)
 
 function initFacebookSubscribeEvent(userEmail: string, evenstSourceUrl: string) {
-    const emailHash = crypto.MD5(userEmail.toLowerCase().trim())
+    const emailHash = crypto.SHA256(userEmail.toLowerCase().trim()).toString()
     const eventTime = Math.floor(Date.now() / 1000);
+
     const postData = {
         data: [{
             event_name: 'Subscribe',
             event_time: eventTime,
             user_data: {
-                em: [
-                    emailHash,
-                ],
+                em: emailHash,
             },
             event_source_url: evenstSourceUrl,
             action_source: 'website',
