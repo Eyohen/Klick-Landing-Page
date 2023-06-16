@@ -78,8 +78,8 @@ const Hero = () => {
                     <p>
                         Are you interested in being
                     </p>
-                    <li style={{ listStyleType: 'none', display: 'flex', flexDirection:'row'}}> A Buyer <Checkbox/></li>
-                    <li style={{ listStyleType: 'none', display: 'flex', flexDirection:'row'}}> A Seller <Checkbox/></li>
+                    <li style={{ listStyleType: 'none', display: 'flex', flexDirection:'row'}}> <div style={{ minWidth: '120px'}}>A Buyer</div> <Checkbox/></li>
+                    <li style={{ listStyleType: 'none', display: 'flex', flexDirection:'row'}}> <div style={{ minWidth: '120px'}}>A Seller</div> <Checkbox/></li>
                     <p className="text-[#FEDD00] mt-4">
                         Be the first to know when we launch
                     </p>
