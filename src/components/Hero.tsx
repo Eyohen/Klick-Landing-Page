@@ -45,6 +45,7 @@ const Hero = () => {
                     // b_3e9df19052ca00cea30ef5249_a7a2381ddc: '',
                 }).toString(),
             });
+            console.log(response)
             // const data = await response.json();
 
             // Display success toast notification
