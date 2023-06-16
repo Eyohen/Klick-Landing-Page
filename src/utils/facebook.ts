@@ -1,7 +1,7 @@
 import * as CONFIG from '../config'
 import crypto from 'crypto-js'
 import axios from 'axios'
-import gql from 'graphql-request'
+import { gql } from 'graphql-request'
 
 console.log(CONFIG)
 
