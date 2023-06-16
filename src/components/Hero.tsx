@@ -9,6 +9,7 @@ import * as CONFIG from '../config'
 import { toast } from 'react-toastify';
 import { COLORS } from "../constants/Color"
 import { initFacebookSubscribeEvent } from "../utils/facebook"
+import Checkbox from "./Checkbox"
 
 const iconClasses = "text-[#FEDD00] md:text-white h-10 w-10 md:border border-white rounded-full p-[10px] hover:cursor-pointer"
 
@@ -77,8 +78,8 @@ const Hero = () => {
                     <p>
                         Are you interested in being
                     </p>
-                    <li> A Buyer </li>
-                    <li> A Seller </li>
+                    <li style={{ listStyleType: 'none', display: 'flex', flexDirection:'row'}}> A Buyer <Checkbox/></li>
+                    <li style={{ listStyleType: 'none', display: 'flex', flexDirection:'row'}}> A Seller <Checkbox/></li>
                     <p className="text-[#FEDD00] mt-4">
                         Be the first to know when we launch
                     </p>
