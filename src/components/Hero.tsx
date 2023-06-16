@@ -59,6 +59,7 @@ const Hero = () => {
     }
 
     function selectOption(option: string) {
+        console.log('selected option', option)
         if (option === 'buyer') {
             setSelectedOptions({ ...selectedOptions, buyer: !selectedOptions.buyer })
         } else {
@@ -85,8 +86,8 @@ const Hero = () => {
 
                 <div className="text-[30px] sm:text-[32px] leading-[38px] sm:leading-[48px]">
                     <p style={{ marginBottom: "10px" }}> Are you interested in being </p>
-                    <CheckListItem text='A Buyer' />
-                    <CheckListItem text='A Seller' />
+                    <CheckListItem text='A Buyer' id='buyer' updateSelectedOption={selectOption}/>
+                    <CheckListItem text='A Seller' id='seller' updateSelectedOption={selectOption}/>
                     <p className="text-[#FEDD00] mt-4">
                         Be the first to know when we launch
                     </p>
