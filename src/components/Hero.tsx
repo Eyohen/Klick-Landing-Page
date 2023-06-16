@@ -45,7 +45,7 @@ const Hero = () => {
                     // b_3e9df19052ca00cea30ef5249_a7a2381ddc: '',
                 }).toString(),
             });
-            const data = await response.json();
+            // const data = await response.json();
 
             // Display success toast notification
             toast.success('Subscription successful!');
