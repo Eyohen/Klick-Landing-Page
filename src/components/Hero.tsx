@@ -41,8 +41,7 @@ const Hero = () => {
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams({
                     EMAIL: userEmail,
-                    INTEREST: [selectedOptions.buyer ? 'Buyer' : '', selectedOptions.seller ? 'Seller' : ''].join(', '),
-                    // b_3e9df19052ca00cea30ef5249_a7a2381ddc: '',
+                    INTEREST: [selectedOptions.buyer ? 'Buyer' : '', selectedOptions.seller ? 'Seller' : ''].join(' '),
                 }).toString(),
             });
             console.log(response)
