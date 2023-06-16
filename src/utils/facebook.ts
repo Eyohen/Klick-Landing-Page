@@ -1,9 +1,11 @@
 import * as CONFIG from '../config'
-import crypto from 'node:crypto'
+import crypto from 'crypto-js'
 import axios from 'axios'
 
+console.log(CONFIG)
+
 function initFacebookSubscribeEvent(userEmail: string, evenstSourceUrl: string) {
-    const emailHash = crypto.createHash('md5').update(userEmail.toLowerCase().trim()).digest('hex');
+    const emailHash = crypto.MD5(userEmail.toLowerCase().trim())
     const eventTime = Math.floor(Date.now() / 1000);
     const postData = [
         {
@@ -20,7 +22,7 @@ function initFacebookSubscribeEvent(userEmail: string, evenstSourceUrl: string) 
     ];
 
     const accessToken = CONFIG.FACEBOOK_ACCESS_TOKEN;
-    const pixelId = '<PIXEL_ID>';
+    const pixelId = CONFIG.FACEBOOK_PIXEL_ID;
 
     axios
         .post(`https://graph.facebook.com/v17.0/${pixelId}/events`, postData, {
