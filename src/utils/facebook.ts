@@ -1,34 +1,38 @@
 import * as CONFIG from '../config'
 import crypto from 'crypto-js'
 import axios from 'axios'
-import { gql } from 'graphql-request'
 
 console.log(CONFIG)
 
-function initFacebookSubscribeEvent(userEmail: string, eventSourceUrl: string) {
+function initFacebookSubscribeEvent(userEmail: string, evenstSourceUrl: string) {
     const emailHash = crypto.MD5(userEmail.toLowerCase().trim())
     const eventTime = Math.floor(Date.now() / 1000);
-    const mutation = gql`
-    mutation {
-      logEvent(
-        event: "Subscribe",
-        eventTime: ${eventTime},
-        userData: { em: ["${emailHash}"] },
-        eventSourceUrl: "${eventSourceUrl}",
-        actionSource: "website"
-      ) {
-        success
-      }
+    const postData = {
+        data: [{
+            event_name: 'Subscribe',
+            event_time: eventTime,
+            user_data: {
+                em: [
+                    emailHash,
+                ],
+            },
+            event_source_url: evenstSourceUrl,
+            action_source: 'website',
+        }],
+        test_event_code: 'TEST17535',
     }
-  `;
 
     const accessToken = CONFIG.FACEBOOK_ACCESS_TOKEN;
     const pixelId = CONFIG.FACEBOOK_PIXEL_ID;
 
     axios
-        .post(`https://graph.facebook.com/v17.0/${pixelId}`, {
-            access_token: accessToken,
-            query: mutation,
+        .post(`https://graph.facebook.com/v17.0/${pixelId}/events`, postData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+            params: {
+                access_token: accessToken,
+            },
         })
         .then((response) => {
             console.log('Event posted successfully:', response.data);
