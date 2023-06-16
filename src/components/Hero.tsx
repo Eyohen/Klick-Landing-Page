@@ -45,7 +45,6 @@ const Hero = () => {
                 }).toString(),
             });
             const data = await response.json();
-            console.log(data);
 
             // Display success toast notification
             toast.success('Subscription successful!');
