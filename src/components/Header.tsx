@@ -22,7 +22,7 @@ const Header = () => {
                 >
                     info@klick.africa
                 </a>
-                <p className="text-sm text-white">150 Ikorodu Road, Onipanu Lagos</p>
+                <p className="text-white md:text-2xl">150 Ikorodu Road, Onipanu Lagos</p>
             </p>
         </div>
     );
