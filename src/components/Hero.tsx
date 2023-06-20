@@ -41,11 +41,11 @@ const Hero = () => {
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams({
                     EMAIL: userEmail,
-                    INTEREST: [selectedOptions.buyer ? 'Buyer' : '', selectedOptions.seller ? 'Seller' : ''].join(', '),
-                    // b_3e9df19052ca00cea30ef5249_a7a2381ddc: '',
+                    INTEREST: [selectedOptions.buyer ? 'Buyer' : '', selectedOptions.seller ? 'Seller' : ''].join(' '),
                 }).toString(),
             });
-            const data = await response.json();
+            console.log(response)
+            // const data = await response.json();
 
             // Display success toast notification
             toast.success('Subscription successful!');
