@@ -54,8 +54,14 @@ const Hero = () => {
             console.log(userEmail)
             toast.success('Subscription successful!');
 
-            // Redirect to google form
-            window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdeZJb6cPE80hv4jIuWC4mvprBAS-4D29oAsHTKxRb-Trjpbw/viewform"      
+            console.log(selectedOptions)
+
+            const user_is_intrested_in_selling = selectedOptions.seller
+
+            if (user_is_intrested_in_selling) {
+                // Redirect to google form
+                window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdeZJb6cPE80hv4jIuWC4mvprBAS-4D29oAsHTKxRb-Trjpbw/viewform"
+            }
         }
     }
 
