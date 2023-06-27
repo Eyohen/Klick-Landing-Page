@@ -51,10 +51,7 @@ const Hero = () => {
         } finally {
             await initFacebookSubscribeEvent(userEmail, eventSource)
             setUserEmail("")
-            console.log(userEmail)
             toast.success('Subscription successful!');
-
-            console.log(selectedOptions)
 
             const user_is_intrested_in_selling = selectedOptions.seller
 
