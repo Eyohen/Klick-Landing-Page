@@ -20,7 +20,6 @@ function validateEmail(email: string) {
 
 const ACTION_URL = CONFIG.ACTION_URL
 
-
 const Hero = () => {
     const [userEmail, setUserEmail] = useState("")
     const [eventSource, setEventSource] = useState<string>('')
@@ -36,7 +35,7 @@ const Hero = () => {
         if (!valid_email) { toast.error('Invalid email address!'); return }
 
         try {
-            const response = await fetch(ACTION_URL, {
+            await fetch(ACTION_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams({
@@ -44,17 +43,19 @@ const Hero = () => {
                     INTEREST: [selectedOptions.buyer ? 'Buyer' : '', selectedOptions.seller ? 'Seller' : ''].join(' '),
                 }).toString(),
             });
-            console.log(response)
             // const data = await response.json();
 
             // Display success toast notification
-            toast.success('Subscription successful!');
         } catch (error) {
-            toast.success('Subscription successful!');
+            // console.log(error)
         } finally {
             await initFacebookSubscribeEvent(userEmail, eventSource)
             setUserEmail("")
             console.log(userEmail)
+            toast.success('Subscription successful!');
+
+            // Redirect to google form
+            window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdeZJb6cPE80hv4jIuWC4mvprBAS-4D29oAsHTKxRb-Trjpbw/viewform"      
         }
     }
 
@@ -86,8 +87,8 @@ const Hero = () => {
 
                 <div className="text-[30px] sm:text-[32px] leading-[38px] sm:leading-[48px]">
                     <p style={{ marginBottom: "10px" }}> Are you interested in being </p>
-                    <CheckListItem text='A Buyer' id='buyer' updateSelectedOption={selectOption}/>
-                    <CheckListItem text='A Seller' id='seller' updateSelectedOption={selectOption}/>
+                    <CheckListItem text='A Buyer' id='buyer' updateSelectedOption={selectOption} />
+                    <CheckListItem text='A Seller' id='seller' updateSelectedOption={selectOption} />
                     <p className="text-[#FEDD00] mt-4">
                         Be the first to know when we launch
                     </p>
